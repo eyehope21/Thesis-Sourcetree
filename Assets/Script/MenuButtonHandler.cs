@@ -3,12 +3,44 @@ using UnityEngine.SceneManagement;
 
 public class MenuButtonHandler : MonoBehaviour
 {
-    public void GoToMenu()
+    public void LoadStory()
     {
-        // Save the current scene name so we can return later
-        PlayerPrefs.SetString("PreviousScene", SceneManager.GetActiveScene().name);
+        SaveCurrentScene();
+        SceneManager.LoadScene("Story mode"); // replace with actual scene name
+    }
 
-        // Load the Menu scene
-        SceneManager.LoadScene("Menu");
+
+    //public void LoadBattle()
+   // {
+       // SaveCurrentScene();
+       // SceneManager.LoadScene("Bat"); // replace with actual scene name
+    //}
+
+
+    public void LoadMenu()
+    {
+        SaveCurrentScene();
+        SceneManager.LoadScene("Menu"); // replace with actual scene name
+    }
+
+
+    public void Back()
+    {
+        if (PlayerPrefs.HasKey("PreviousScene"))
+        {
+            string prevScene = PlayerPrefs.GetString("PreviousScene");
+            SceneManager.LoadScene(prevScene);
+        }
+        else
+        {
+            Debug.LogWarning("No previous scene stored!");
+        }
+    }
+
+
+    private void SaveCurrentScene()
+    {
+        string currentScene = SceneManager.GetActiveScene().name;
+        PlayerPrefs.SetString("PreviousScene", currentScene);
     }
 }

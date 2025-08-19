@@ -30,7 +30,8 @@ public class RegisterHandler : MonoBehaviour
             }
 
             ToastManager.Instance.ShowToast("Registration successful!");
-            
+            SceneManager.LoadScene("ARScene");
+
         }, TaskScheduler.FromCurrentSynchronizationContext());
     }
 }

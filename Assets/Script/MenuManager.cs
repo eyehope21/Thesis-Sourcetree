@@ -16,8 +16,8 @@ public class MenuManager : MonoBehaviour
     {
         // Load the saved scene name (default to ARScene if none found)
         string previousScene = PlayerPrefs.GetString("PreviousScene", "ARScene");
-            SceneManager.LoadScene(previousScene);
-        }
+        SceneManager.LoadScene(previousScene);
+    }
 
     public void Logout()
     {

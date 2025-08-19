@@ -27,7 +27,7 @@ public class ResetPasswordHandler : MonoBehaviour
                 return;
             }
 
-            ToastManager.Instance.ShowToast("Password reset email sent!");
+            ToastManager.Instance.ShowToast("Password reset email sent!, Please Check in Spam!");
         }, TaskScheduler.FromCurrentSynchronizationContext());
     }
 }
