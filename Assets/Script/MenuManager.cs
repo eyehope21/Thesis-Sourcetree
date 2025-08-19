@@ -14,15 +14,10 @@ public class MenuManager : MonoBehaviour
 
     public void BackToPrevious()
     {
-        if (!string.IsNullOrEmpty(previousScene))
-        {
+        // Load the saved scene name (default to ARScene if none found)
+        string previousScene = PlayerPrefs.GetString("PreviousScene", "ARScene");
             SceneManager.LoadScene(previousScene);
         }
-        else
-        {
-            Debug.LogWarning("No previous scene set!");
-        }
-    }
 
     public void Logout()
     {
